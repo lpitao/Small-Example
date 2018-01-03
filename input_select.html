@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>select样式</title>
+		<link rel="stylesheet" href="css/css.css" />
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+		<style>
+		.d_select{
+			margin: 0 auto;
+		    width: 16%;
+		    position: relative;
+		}
+		.triangle_border_up{
+		    width:0;
+		    height:0;
+		    border-width:0 6px 8px;
+		    border-style:solid;
+		    border-color:transparent transparent #B2B2B2;/*透明 透明  灰*/
+		}
+		.triangle_border_down{
+		    width:0;
+		    height:0;
+		    border-width:8px 6px 0;
+		    border-style:solid;
+		    border-color:#B2B2B2 transparent transparent;/*灰 透明 透明 */
+		}
+		.d_tr{
+			position:absolute;
+			top: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto 0;
+			display: none;
+		}
+		
+		.input_outer{
+			width: 112px;
+		    border-color: #549df8;
+		    position: relative;
+		}
+		.input_outer input{
+			border: 1px #aaa solid;
+		    border-radius: 4px;
+		    background: 0 0;
+		    text-align: left;
+		    font-size: 20px;
+		    height: 50px;
+		    line-height: 50px;
+		    padding: 0 20px;
+		    width: 112px;
+		}
+		.input_outer .selector{
+			position: absolute;
+		    right: 5px;
+		    top: 0;
+		    height: 52px;
+		    padding-right: 12px;
+		}
+		.options{
+			display: none;
+			border: 1px #b2b2b2 solid;
+		    background-color: #fff;
+		    box-shadow: 0 3px 8px 0 rgba(0,0,0,.15);
+		    font-size: 20px;
+		    overflow-y: scroll;
+		    position: absolute;
+		    height: 100px;
+		    z-index: 2;
+		    width: 100%;
+		}
+		.options li{
+		    padding: 0 20px;
+		}
+		.options li:hover{
+			background: #EEEEEE;
+		}
+		.options li a{
+		    line-height: 48px;
+    		height: 48px;
+		}
+		</style>
+	</head>
+	<body>
+		<div class="d_select">
+			<div class="input_outer">
+				<input type="text" autocomplete="off" />
+				<div class="selector ">
+					<div class="triangle_border_up d_tr" data-up="up" ></div>
+					<div class="triangle_border_down d_tr" style="display: block;" data-up="down"></div>
+				</div>
+			</div>
+			<ul class="options">
+				<li>
+					<a href="javascript:;void(0)">1</a>
+				</li>
+				<li>
+					<a href="javascript:;void(0)">2</a>
+				</li>
+				<li>
+					<a href="javascript:;void(0)">3</a>
+				</li>
+				<li>
+					<a href="javascript:;void(0)">4</a>
+				</li>
+				<li>
+					<a href="javascript:;void(0)">5</a>
+				</li>
+				<li>
+					<a href="javascript:;void(0)">6</a>
+				</li>
+				<li>
+					<a href="javascript:;void(0)">7</a>
+				</li>
+				<li>
+					<a href="javascript:;void(0)">8</a>
+				</li>
+				<li>
+					<a href="javascript:;void(0)">9</a>
+				</li>
+			</ul>
+		
+		</div>
+		<script>
+			$(".d_select .selector").on("click",function(){
+				var dataUp = $(this).children(".d_tr[data-up = 'up']");
+				dataUp.show().siblings().hide();
+				dataUp.attr("data-up","down").siblings().attr("data-up","up")
+				if( $(this).children(".triangle_border_down").attr("data-up") == "up"){
+					$(".options").show();
+				}else{
+					$(".options").hide();
+				}
+			})
+		</script>
+	</body>
+</html>

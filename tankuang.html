@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+		<style>
+			.d_btn_blue{
+				width: 89px;
+			    height: 21px;
+			    background: rgb(0,149,255);
+			    color: white;
+			    border: none;
+			    font-size: 13px;
+			    border-radius: 2px;
+			    -moz-border-radius: 2px;
+			    -o-border-radius: 2px;
+			    -webkit-border-radius: 2px;
+			}
+			.d_tankuang{
+				width: 400px;
+			    position: fixed;
+			    top: 50%;
+			    left: 50%;
+			    margin-left: -200px;
+			    margin-top: -200px;
+			    border: 1px solid #ccc;
+			    border-radius: 2px;
+			    -moz-border-radius: 2px;
+			    -o-border-radius: 2px;
+			    background: white;
+			    display: none;
+			}
+			.d_tankuang h4{
+			    margin: 17px 119px;
+				font-size: 16px;
+			}
+			.d_tankuang input{
+				float: left;
+			    margin: 2px 24px;
+			}
+			.d_tankuangTwo{
+				width: 400px;
+			    height: 200px;
+			    position: fixed;
+			    top: 86%;
+			    left: 50%;
+			    margin-left: -200px;
+			    margin-top: -200px;
+			    border: 1px solid #ccc;
+			    border-radius: 2px;
+			    background: white;
+			    display: none;
+			    font-size: 16px;
+			    text-align: center;
+			    line-height: 200px;
+			}
+			.d_btn_white{
+			    width: 80px;
+			    height: 30px;
+			    border: 1px solid #ccc;
+			    border-radius: 2px;
+			    margin: 20px 55px;
+			}
+			.d_tankuang_bg{
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,0.5);
+				background: rgb(0,0,0)\9;
+				filter:alpha(opacity=50);
+				position: fixed;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<button class="d_btn_blue">我要发表</button>
+		 <div class="d_tankuang_bg"></div>
+        <div class="d_tankuang clearfix">
+        	<h4>请选择您要发表的研报</h4>
+        	<label>
+        		<input type="checkbox" name="iconCheck" />
+	        	<i class="iconfont icon-pdf"></i>
+	        	<p>默认名称为：企业名称</p>
+        	</label>
+        	<label>
+        		<input type="checkbox" name="iconCheck" />
+	        	<i class="iconfont icon-pdf"></i>
+	        	<p>默认名称为：企业名称</p>
+        	</label>
+        	<label>
+        		<input type="checkbox" name="iconCheck" />
+	        	<i class="iconfont icon-pdf"></i>
+	        	<p>默认名称为：企业名称</p>
+        	</label>
+        	<button class="d_btn_white">取消</button>
+        	<button class="d_btn_white">确认</button>
+        </div>
+        <div class="d_tankuangTwo">
+        	提交成功，请等待审核
+        </div>
+        <script>
+        	$(".d_btn_blue").on("click",function(){
+				$(".d_tankuang").css({"display":"block"});
+				$(".d_tankuang_bg").css({"display":"block"});
+				$(".cwyj-a").css({"z-index":0})
+			})
+			$(".d_tankuang button").eq(1).on("click",function(){
+				$(".d_tankuangTwo").css({"display":"block"});
+			})
+			$(".d_tankuang button").eq(0).on("click",function(){
+				$(".d_tankuang").css({"display":"none"});
+				$(".d_tankuangTwo").css({"display":"none"});
+				$(".d_tankuang_bg").css({"display":"none"});
+				$(".cwyj-a").css({"z-index":200})
+			})
+        </script>
+	</body>
+</html>

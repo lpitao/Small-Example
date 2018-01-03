@@ -1,0 +1,209 @@
+﻿<!doctype html>
+<html>
+		<head>
+		<meta charset="utf-8">
+		<title>CSS3 开关按钮</title>
+			<style>
+				body {
+				  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+				  background-color: #ffffff;
+				}	
+				*{
+					-webkit-box-sizing: border-box;
+				  -moz-box-sizing: border-box;
+				  box-sizing: border-box;
+				}
+				.wrapper {
+				  width: 90%;
+				  margin: 0 auto;
+				  text-align: center;
+				}								
+				pre {
+				  background-color: #fbfbfb;
+				  border: 1px solid #eee;
+				  padding: .6em;
+				  display: inline-block;
+				  border-radius: 3px;
+				  text-align: left;
+				}
+				.fields__item {
+				  display: inline-block;
+				  margin-right: 1.875em;
+				  text-align: center;
+				}
+				
+				.uiswitch {						  
+				  -webkit-appearance: none;
+				  -moz-appearance: none;
+				  -ms-appearance: none;
+				  -o-appearance: none;
+				  appearance: none;
+				  -webkit-user-select: none;
+				  -moz-user-select: none;
+				  -ms-user-select: none;
+				  user-select: none;
+				  height: 31px;
+				  width: 51px;
+				  background-color: #e5e5e5;
+				  position: relative;
+				  border-radius: 16px;
+				  cursor: pointer;
+				  outline: 0;
+				  z-index: 0;
+				  margin: 0;
+				  padding: 0;
+				  border: none;
+				  background-color: #e5e5e5;
+				  -webkit-touch-callout: none;
+				  -webkit-text-size-adjust: none;
+				  -webkit-tap-highlight-color: transparent;
+				}
+				/*小圆扭*/
+				.uiswitch::before {
+				  height: 27px;
+				  width: 47px;
+				  content: ' ';
+				  position: absolute;
+				  left: 2px;
+				  top: 2px;
+				  background-color: #ffffff;
+				  border-radius: 16px;
+				  z-index: 1;
+				  -webkit-transition-duration: 300ms;
+				  -moz-transition-duration: 300ms;
+				  transition-duration: 300ms;
+
+				}
+				/*消失的背景*/
+				.uiswitch::after {
+				  height: 27px;
+				  width: 27px;
+				  content: ' ';
+				  position: absolute;
+				  border-radius: 27px;
+				  background: #ffffff;
+				  z-index: 2;
+				  top: 2px;
+				  left: 2px;
+				  box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25), 0px 4px 11px 0px rgba(0, 0, 0, 0.08), -1px 3px 3px 0px rgba(0, 0, 0, 0.14);
+				  -webkit-transition: -webkit-transform 300ms cubic-bezier(0.42, 0.8, 0.58, 1.2), width 280ms cubic-bezier(0.42, 0.8, 0.58, 1.2);
+				  -moz-transition: -moz-transform 300ms cubic-bezier(0.42, 0.8, 0.58, 1.2), width 280ms cubic-bezier(0.42, 0.8, 0.58, 1.2);
+				  transition: transform 300ms cubic-bezier(0.42, 0.8, 0.58, 1.2), width 280ms cubic-bezier(0.42, 0.8, 0.58, 1.2);
+				 
+				}	
+				/*被选中时，背景的颜色*/
+				.uiswitch:checked {
+				  background-color: #4CD964;
+				  background-image: -webkit-linear-gradient(-90deg, #4CD964 0%, #4dd865 100%);
+				  background-image: linear-gradient(-180deg,#4CD964 0%, #4dd865 100%);
+				}
+				/*被选中时候，小圆扭滑动动画*/
+				.uiswitch:checked::after {
+				  -webkit-transform: translate3d(16px, 0, 0);
+				  -moz-transform: translate3d(16px, 0, 0);
+				  -ms-transform: translate3d(16px, 0, 0);
+				  -o-transform: translate3d(16px, 0, 0);
+				  transform: translate3d(16px, 0, 0);
+				  right: 18px;
+				  left: inherit;
+				}
+				/*被active时候，小圆扭变大动画*/
+				.uiswitch:active::after {
+				  width: 35px;
+				}
+				/*被选中时候，背景消失动画*/
+				.uiswitch:checked::before, .uiswitch:active::before {
+				  -webkit-transform: scale(0);
+				  -moz-transform: scale(0);
+				  -ms-transform: scale(0);
+				  -o-transform: scale(0);
+				  transform: scale(0);
+				}
+				/*被禁用时，无动画*/
+				.uiswitch:disabled {
+				  opacity: 0.5;
+				  cursor: default;
+				  -webkit-transition: none;
+				  -moz-transition: none;
+				  transition: none;
+				}
+
+				
+				
+				
+				/*以下尝试改变的样式*/
+				.custom {
+				  background-color: #eadcbc;
+				}				
+				.custom::before {
+				  background-color: #f7f2e5;
+				}			
+				.custom::after {
+				  background: #fff3a6;
+				}
+				.custom:checked {
+				  background-color: #ffca3f;
+				  background-image: -webkit-linear-gradient(-90deg, #ffca3f 0%, #feca40 100%);
+				  background-image: linear-gradient(-180deg, #ffca3f 0%, #feca40 100%);
+				}
+				
+				.my-switch {
+				  border-radius: 4px;
+				}				
+				.my-switch::before {
+				  border-radius: 2px;
+				}						
+				.my-switch::after {
+				  border-radius: 1px;
+				}				
+				.my-switch:checked {
+				  background: hotpink;
+				}	
+				.my-switch:checked::after {
+				  background-color: #333;
+				}
+			</style>
+		</head>
+		<body>
+		<div class="wrapper">
+		    <h1>css3 ui单选按钮i8 勉强可看</h1>
+		
+		    <section class="fields section">
+		        <div class="fields__item">
+		            <input type="checkbox" class="uiswitch">
+		            <h6>Off (unchecked)</h6>
+		        </div>
+		        <div class="fields__item">
+		            <input type="checkbox" class="uiswitch" checked>
+		            <h6>On (checked)</h6>
+		        </div>
+		
+		        <div class="fields__item">
+		            <input type="checkbox" class="uiswitch" disabled>
+		            <h6>Disabled Off</h6>
+		        </div>
+		
+		        <div class="fields__item">
+		            <input type="checkbox" class="uiswitch" checked disabled>
+		            <h6>Disabled On</h6>
+		        </div>
+		
+		        <div class="fields__item">
+		            <input type="checkbox" class="uiswitch custom">
+		            <h6>Custom</h6>
+		        </div>
+		
+		        <div class="fields__item">
+		            <input type="checkbox" class="uiswitch my-switch">
+		            <h6>my-switch</h6>
+		        </div>
+		    </section>
+		
+		    <section  class="section">
+		        <pre><code><input type="checkbox" class="uiswitch"></code></pre>
+		    </section>
+		</div>
+		
+		
+		</body>
+</html>

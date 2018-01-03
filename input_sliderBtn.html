@@ -1,0 +1,79 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+	<head> 
+		<meta charset="UTF-8"> 
+		<title>jquery做的滑动按钮开关</title> 
+		<link
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+	</head> 
+	<style> 
+			.d_slideBtn{ 
+			border-radius: 20px; 
+			width: 100px;
+			position: relative;
+			display: inline-block;
+			} 
+			.move{ 
+			z-index: 100; 
+			width: 40px; 
+			border-radius: 20px; 
+			height: 40px; 
+			position: absolute; 
+			cursor: pointer; 
+			border: 1px solid #828282; 
+			background-color: #f1eff0; 
+			box-shadow: 1px 2px 2px 1px #fff inset,0 0 5px 1px #999; 
+			}
+			/*一个是label,一个是滑动圆圈按钮*/
+			.btnSwitch{ 
+			height: 40px; 
+			width: 50px; 
+			color: #fff; 
+			line-height: 40px; 
+			font-size: 16px; 
+			text-align: center; 
+			z-index: 1; 
+			} 
+			.on.d_slideBtn{ 
+			background-color: #5281cd; 
+			} 
+			.off.d_slideBtn{ 
+			background-color: #828282; 
+			} 
+			/*on和off长的样子,在点击之后做得改变*/
+			input{
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				z-index: 999;
+				opacity: 0;
+			}
+	</style> 
+<body> 
+	<label for="sliderBtn" class="d_slideBtn clearfix off">
+		<input type="checkbox" id="sliderBtn" name="justice" onclick="alert(8)"/>
+		<div class="move" data-state="off"></div> 
+		<div class="btnSwitch fl">ON</div> 
+		<div class="btnSwitch fr ">OFF</div> 
+	</label>
+	<script type="text/javascript"> 
+		$(".d_slideBtn").on("click",function(e){
+			toogle($(this));
+			console.log(e.target)
+		})
+		function toogle(th){ 
+			var ele = $(th).children(".move"); 
+			if(ele.attr("data-state") == "on"){ 
+				ele.animate({left: "0"}, 300, function(){ 
+					$(this).attr("data-state", "off"); 
+				}); 
+				$(th).removeClass("on").addClass("off"); 
+			}else if(ele.attr("data-state") == "off"){ 
+				ele.animate({left: '60px'}, 300, function(){ 
+					$(this).attr("data-state", "on"); 
+				}); 
+				$(th).removeClass("off").addClass("on"); 
+			} 
+		} 
+	</script> 
+</body> 

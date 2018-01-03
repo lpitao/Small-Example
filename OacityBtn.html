@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>opacity AND btn AND border</title>
+		<style>
+			label,button {
+			    cursor: pointer;
+			}
+			.d_tankuang_bg{
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,0.5);
+				background: rgb(0,0,0)\9;
+				filter:alpha(opacity=50);
+				position: fixed;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			.d_btn_white{
+			    width: 80px;
+			    height: 30px;
+			    border: 1px solid #ccc;
+			    border-radius: 2px;
+			    -moz-border-radius: 2px;
+			    -o-border-radius: 2px;
+			    margin: 20px 55px;
+			    background: white;
+			}
+			.d_btn_blue{
+				width: 89px;
+			    height: 21px;
+			    background: rgb(0,149,255);
+			    color: white;
+			    border: none;
+			    font-size: 13px;
+			    border-radius: 2px;
+			    -moz-border-radius: 2px;
+			    -o-border-radius: 2px;
+			    -webkit-border-radius: 2px;
+			    
+			}
+		</style>
+	</head>
+	<body>
+		<div class="d_tankuang_bg"></div>
+		<button class="d_btn_blue">确认</button>
+		<button class="d_btn_white">确认</button>
+	</body>
+</html>
