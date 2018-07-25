@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"> 
+		<title></title>
+		
+		<script>
+			if (/iP(hone|od|ad)/.test(navigator.userAgent)) { 
+				var v = (navigator.appVersion).match(/OS (\d+)_(\d+)_?(\d+)?/), version = parseInt(v[1], 10);
+				if(version >= 8){ 
+					console.log(1)
+					document.documentElement.classList.add('hairlines') 
+				} 
+			}	
+		</script>
+		<link rel="stylesheet" href="css/iconfont_search.css" />
+		<script src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+		<style type="text/css">
+			body,html{margin:0;padding:0}
+		 	html{width:100vw;height:100vh}
+		 	body{min-height:100%;}
+		 	*,:after,:before{box-sizing:border-box}
+		 	li,ul{list-style:none outside none;margin:0;padding:0}
+		 	figure{display:block;margin:0}
+		 	img{width:100%;height:auto;vertical-align:top}		
+		 	
+
+			.searchSS {
+			  width: 85%;
+			  height: 8vw;
+			  vertical-align: middle;
+			  line-height: 8vw;
+			  margin: 2.6666666667vw auto; 
+		      overflow: hidden;
+			}
+			
+			.searchSS .searchInput.searchInputAnim {
+			  width: 85%; 
+			}	
+			.searchSS span.delAnim {
+			  width: 10%; 
+			}
+			
+			.searchSS .searchInput {
+			  border: 1px solid #AAAAAA;
+			  width: 90%;
+			  border-radius: 7px;
+			  height: 8vw;
+			  padding: 0.5333333333vw;
+			  background: none;
+			  position: relative;
+			  float: left;
+			  transition: all 0.5s linear; }
+			
+			.searchSS .searchInput input {
+			  border: none;
+			  outline: none;
+			  background: none;
+			  height: 5.0666666667vw;
+			  display: inline;
+			  position: absolute;
+			  left: 6.8666666667vw;
+			  top: 0;
+			  bottom: 0;
+			  margin: auto; 
+			}
+			
+			.searchSS input::-webkit-input-placeholder{
+			  color: #AAAAAA;
+			  font-size: 12px; 
+			}
+			.searchSS input::-ms-input-placeholder,.searchSS input::-moz-placeholder {
+			  color: #AAAAAA;
+			  font-size: 12px; 
+			}
+			
+			.searchSS .iconfont {
+			  position: absolute;
+			  top: 0;
+			  bottom: 0;
+			  margin: auto;
+			  width: 8vw;
+			  height: 8vw;
+			  color: #8F8E94; }
+			
+			.searchSS .iconfont.icon-sousuo {
+			  left: 1.3333333333vw; }
+			
+			.searchSS .iconfont.icon-quxiao {
+			  right: 1.3333333333vw; }
+			
+			.searchSS span {
+			  color: #8C8C8C;
+			  font-size: 14px;
+			  float: right;
+			  transition: width 0.5s linear;
+			  transform-origin: right center;
+			  width: 0%;
+			  overflow: hidden;
+			  white-space: nowrap; }
+			
+			.alert {
+			  width: 100vw;
+			  height: 100vh;
+			  background: rgba(0, 0, 0, 0.55);
+			  display: none;
+			  transition: all 0.5s linear; }
+
+		 	.hairlines	.searchInput { 
+		 	   border:0.5px solid #aaa;
+		 	} 
+
+		</style>
+	
+	</head>
+	<body>
+		<div class="searchSS">
+			<div class="searchInput">
+				<i class="iconfont icon-sousuo"></i>
+				<input type="text" placeholder="请输入关键词"/>
+				<i class="iconfont icon-quxiao"></i>
+			</div>
+			<span class="del">取消</span>
+		</div>
+		<div class="alert"></div>
+		<script type="text/javascript">
+			$('.searchInput').on('click',function(){
+				$('.searchInput').addClass('searchInputAnim')
+				$('.del').addClass('delAnim');
+				$('.alert').show()
+			})
+			$('.del').on('click',function(){
+				$('.searchInput').removeClass('searchInputAnim')
+				$('.del').removeClass('delAnim')
+				$('.alert').hide()
+			})
+		</script>
+		
+	</body>
+</html>
